@@ -38,7 +38,6 @@ function selectBreed(e) {
 fetchBreeds()
   .then(({ data }) => {
     refs.select.classList.remove('hidden');
-    console.log(data);
 
     const breeds = data
       .map(option => `<option value=${option.id}>${option.name}</option>`)
