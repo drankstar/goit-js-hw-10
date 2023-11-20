@@ -11,5 +11,6 @@ export function fetchBreeds() {
 }
 
 export function fetchCatByBreed(value) {
+  console.log(value);
   return api.get(`/images/search?breed_ids=${value}`);
 }
