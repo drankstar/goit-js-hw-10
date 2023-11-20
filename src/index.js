@@ -21,10 +21,10 @@ function selectBreed(e) {
     .then(resp => {
       const catInfo = breedsData.find(element => element.id === e.target.value);
       refs.catInfo.innerHTML = `
-      <h2>${catInfo.name}</h2> 
-      <img src=${resp.data[0].url} alt=${catInfo.name} />
-      <p>${catInfo.description}</p>
-      <p>${catInfo.temperament}</p>`;
+      <h2 class='title'>${catInfo.name}</h2> 
+      <img class="cat_img" src=${resp.data[0].url} alt=${catInfo.name} width="700" height="500" />
+      <p class="text"><span class="text_strong">Description:</span> ${catInfo.description}</p>
+      <p class="text"><span class="text_strong">Temperament:</span> ${catInfo.temperament}</p>`;
       refs.catInfo.classList.remove('hidden');
     })
     .catch(error => {
@@ -38,6 +38,7 @@ function selectBreed(e) {
 fetchBreeds()
   .then(({ data }) => {
     refs.select.classList.remove('hidden');
+    console.log(data);
 
     const breeds = data
       .map(option => `<option value=${option.id}>${option.name}</option>`)
